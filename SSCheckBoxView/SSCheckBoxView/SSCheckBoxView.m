@@ -43,12 +43,13 @@ static const CGFloat kHeight = 36.0f;
 - (id) initWithFrame:(CGRect)frame
                style:(SSCheckBoxViewStyle)aStyle
              checked:(BOOL)aChecked
+        AndTextColor:(UIColor*) color
 {
     frame.size.height = kHeight;
     if (!(self = [super initWithFrame:frame])) {
         return self;
     }
-
+    _textcolor = color;
     stateChangedSelector = nil;
     self.stateChangedBlock = nil;
     delegate = nil;
@@ -59,15 +60,15 @@ static const CGFloat kHeight = 36.0f;
     self.userInteractionEnabled = YES;
     self.backgroundColor = [UIColor clearColor];
 
-    CGRect labelFrame = CGRectMake(32.0f, 7.0f, self.frame.size.width - 32, 20.0f);
+    CGRect labelFrame = CGRectMake(32.0f, 9.0f, self.frame.size.width - 32, 20.0f);
     UILabel *l = [[UILabel alloc] initWithFrame:labelFrame];
     l.textAlignment = UITextAlignmentLeft;
     l.backgroundColor = [UIColor clearColor];
-    l.font = [UIFont fontWithName:@"Helvetica-Bold" size:15];
-    l.textColor = RgbHex2UIColor(0x2E, 0x2E, 0x2E);
+    l.font = [UIFont fontWithName:kFontGothamBook size:12];
+    l.textColor = _textcolor;
     l.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    l.shadowColor = [UIColor whiteColor];
-    l.shadowOffset = CGSizeMake(0, 1);
+    l.shadowColor = [UIColor blackColor];
+    l.shadowOffset = CGSizeMake(0, 0.5);
     [self addSubview:l];
     textLabel = l;
 

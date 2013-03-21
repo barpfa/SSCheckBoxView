@@ -54,13 +54,15 @@ typedef enum SSCheckBoxViewStyle_ {
 }
 
 @property (nonatomic, readonly) SSCheckBoxViewStyle style;
+@property (nonatomic, retain) UIColor *textcolor;
 @property (nonatomic, readonly) BOOL checked;
 @property (nonatomic, getter=enabled, setter=setEnabled:) BOOL enabled;
 @property (nonatomic, copy) void (^stateChangedBlock)(SSCheckBoxView *cbv);
 
 - (id) initWithFrame:(CGRect)frame
                style:(SSCheckBoxViewStyle)aStyle
-             checked:(BOOL)aChecked;
+             checked:(BOOL)aChecked
+        AndTextColor:(UIColor*) color;
 
 - (void) setText:(NSString *)text;
 
