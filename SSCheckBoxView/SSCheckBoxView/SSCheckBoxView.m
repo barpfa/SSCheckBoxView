@@ -67,8 +67,8 @@ static const CGFloat kHeight = 36.0f;
     l.font = [UIFont fontWithName:kFontGothamBook size:12];
     l.textColor = _textcolor;
     l.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    l.shadowColor = [UIColor blackColor];
-    l.shadowOffset = CGSizeMake(0, 0.5);
+    //l.shadowColor = [UIColor blackColor];
+    //l.shadowOffset = CGSizeMake(0, 0.5);
     [self addSubview:l];
     textLabel = l;
 
